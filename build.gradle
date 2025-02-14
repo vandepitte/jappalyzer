@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = '0.5.3'
+version = '0.5.4'
 sourceCompatibility = 21
 targetCompatibility = 21
 
@@ -38,7 +38,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.vampbear'
             artifactId = 'jappalyzer'
-            version = '0.5.3'
+            version = '0.5.4'
             from components.java
         }
     }
