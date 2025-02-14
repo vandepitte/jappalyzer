@@ -5,8 +5,8 @@ plugins {
 }
 
 version = '0.5.3'
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 21
+targetCompatibility = 21
 
 repositories {
     mavenCentral()
@@ -24,13 +24,16 @@ task fatJar(type: Jar) {
 }
 
 publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.vampbear'
-            artifactId = 'jappalyzer'
-            from components.java
-        }
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = "https://maven.pkg.github.com/dnsbelgium/jappalyzer"
+      credentials {
+        username = System.getenv("GITHUB_ACTOR")
+        password = System.getenv("GITHUB_TOKEN")
+      }
     }
+  }
 }
 
 dependencies {
