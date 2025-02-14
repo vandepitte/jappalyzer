@@ -36,6 +36,7 @@ publishing {
   }
   publications {
     gpr(MavenPublication) {
+      groupId = 'com.vampbear.jappalyzer'
       from(components.java)
     }
   }
