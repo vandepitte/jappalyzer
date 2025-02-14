@@ -32,5 +32,5 @@ jobs:
       - name: Publish package
         run: ./gradlew publish
         env:
-          MVN_USERNAME: ${{ secrets.GITHUB_ACTOR }}
-          MVN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

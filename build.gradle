@@ -24,22 +24,25 @@ task fatJar(type: Jar) {
 }
 
 publishing {
-  repositories {
-    maven {
-      name = "GitHubPackages"
-      url = "https://maven.pkg.github.com/dnsbelgium/jappalyzer"
-      credentials {
-        username = project.findProperty("gpr.user") ?: System.getenv("MVN_USERNAME")
-        password = project.findProperty("gpr.key") ?: System.getenv("MVN_TOKEN")
-      }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/DNSBelgium/jappalyzer"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
-  }
-  publications {
-    gpr(MavenPublication) {
-      groupId = 'com.vampbear.jappalyzer'
-      from(components.java)
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.vampbear'
+            artifactId = 'jappalyzer'
+            version = '0.5.3'
+            from components.java
+        }
     }
-  }
+
 }
 
 dependencies {
